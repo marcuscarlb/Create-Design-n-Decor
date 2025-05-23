@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "cut_blackstone_stairs",
+  "key": {
+    "X": {
+      "item": "dndecor:cut_blackstone"
+    }
+  },
+  "pattern": [
+    "X  ",
+    "XX ",
+    "XXX"
+  ],
+  "result": {
+    "count": 4,
+    "id": "dndecor:cut_blackstone_stairs"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "dndecor:crafting/tuff_millstone"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_tuff_millstone": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dndecor:tuff_millstone"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_tuff_millstone"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "dndecor:crafting/tuff_millstone"
+    ]
+  }
+}

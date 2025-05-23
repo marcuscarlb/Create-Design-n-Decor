@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_belt_connector": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dndecor:belt_connector"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "dndecor:crafting/belt_connector"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_belt_connector"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "dndecor:crafting/belt_connector"
+    ]
+  }
+}

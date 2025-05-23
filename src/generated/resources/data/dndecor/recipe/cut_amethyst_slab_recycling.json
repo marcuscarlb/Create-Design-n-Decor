@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "dndecor:cut_amethyst_slab"
+    },
+    {
+      "item": "dndecor:cut_amethyst_slab"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "dndecor:cut_amethyst"
+  }
+}

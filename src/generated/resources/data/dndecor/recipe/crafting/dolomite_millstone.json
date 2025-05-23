@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "dndecor:dolomite"
+    },
+    {
+      "tag": "c:create/millstones"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "dndecor:dolomite_millstone"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "create:veridium"
+    },
+    {
+      "tag": "c:create/crushing_wheels"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "dndecor:veridium_crushing_wheel"
+  }
+}

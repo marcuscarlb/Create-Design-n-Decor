@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "I": {
+      "item": "create:zinc_ingot"
+    },
+    "Z": {
+      "item": "create:zinc_block"
+    }
+  },
+  "pattern": [
+    "III",
+    "IZI",
+    "III"
+  ],
+  "result": {
+    "count": 8,
+    "id": "dndecor:zinc_checker_tiles"
+  }
+}

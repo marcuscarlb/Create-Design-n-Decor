@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:packed_mud"
+    },
+    {
+      "tag": "c:create/millstones"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "dndecor:packed_mud_millstone"
+  }
+}

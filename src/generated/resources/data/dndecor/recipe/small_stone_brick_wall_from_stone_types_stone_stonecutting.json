@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "tag": "dndecor:stone_types/stone"
+  },
+  "result": {
+    "count": 1,
+    "id": "dndecor:small_stone_brick_wall"
+  }
+}

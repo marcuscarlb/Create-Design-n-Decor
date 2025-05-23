@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:netherrack"
+    },
+    {
+      "tag": "c:create/crushing_wheels"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "dndecor:netherrack_crushing_wheel"
+  }
+}

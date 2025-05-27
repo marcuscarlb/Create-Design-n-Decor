@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "A": {
+      "item": "create:asurine"
+    },
+    "S": {
+      "item": "create:iron_sheet"
+    }
+  },
+  "pattern": [
+    "AS",
+    "SA"
+  ],
+  "result": {
+    "count": 4,
+    "id": "dndecor:stone_metal"
+  }
+}

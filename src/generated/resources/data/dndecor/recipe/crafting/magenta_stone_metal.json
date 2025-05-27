@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "A": {
+      "item": "create:asurine"
+    },
+    "D": {
+      "tag": "c:dyes/magenta"
+    },
+    "S": {
+      "item": "create:iron_sheet"
+    }
+  },
+  "pattern": [
+    "ASA",
+    "SDS",
+    "ASA"
+  ],
+  "result": {
+    "count": 8,
+    "id": "dndecor:magenta_stone_metal"
+  }
+}

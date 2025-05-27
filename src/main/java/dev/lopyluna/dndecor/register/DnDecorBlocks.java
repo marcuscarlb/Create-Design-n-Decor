@@ -3,6 +3,7 @@ package dev.lopyluna.dndecor.register;
 import com.simibubi.create.*;
 import com.simibubi.create.content.decoration.encasing.EncasedCTBehaviour;
 import com.simibubi.create.content.decoration.palettes.AllPaletteBlocks;
+import com.simibubi.create.content.decoration.palettes.AllPaletteStoneTypes;
 import com.simibubi.create.content.decoration.palettes.ConnectedGlassPaneBlock;
 import com.simibubi.create.content.decoration.palettes.WindowBlock;
 import com.simibubi.create.content.kinetics.belt.BeltBlock;
@@ -66,6 +67,7 @@ import java.util.function.Function;
 
 import static com.simibubi.create.api.behaviour.display.DisplaySource.displaySource;
 import static com.simibubi.create.api.behaviour.display.DisplayTarget.displayTarget;
+import static com.simibubi.create.foundation.data.CreateRegistrate.casingConnectivity;
 import static com.simibubi.create.foundation.data.CreateRegistrate.connectedTextures;
 import static com.simibubi.create.foundation.data.ModelGen.customItemModel;
 import static com.simibubi.create.foundation.data.TagGen.axeOrPickaxe;
@@ -381,6 +383,54 @@ public class DnDecorBlocks {
             .lang("Zinc Checker Tiles")
             .simpleItem()
             .register();
+
+    public static final BlockEntry<Block> STONE_METAL = REG.block("stone_metal", Block::new)
+            .properties(p -> p.mapColor(MapColor.TERRACOTTA_CYAN).sound(DnDecorSoundTypes.METAL_HEAVY).strength(1.5f,2f))
+            .blockstate((c, p) -> p.simpleBlock(c.get()))
+            .onRegister(CreateRegistrate.connectedTextures(() -> new EncasedCTBehaviour(omni("stone_metal"))))
+            .onRegister(casingConnectivity((block, cc) -> cc.makeCasing(block, omni("stone_metal"))))
+            .transform(pickaxeOnly())
+            .recipe((c, p) -> ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, c.get(), 4)
+                    .pattern("AS").pattern("SA")
+                    .define('S', AllItems.IRON_SHEET.get()).define('A', AllPaletteStoneTypes.ASURINE.baseBlock.get())
+                    .unlockedBy("has_" + c.getName(), has(c.get())).save(p, DnDecor.loc("crafting/" + c.getName())))
+            .blockstate((c, p) -> {
+                var model = p.models().cubeAll(c.getName(), DnDecor.loc("block/stone_metal"));
+                p.simpleBlockItem(c.get(), model);
+                p.simpleBlock(c.get(), model);
+            })
+            .item().tag(DnDecorTags.modItemTag("stone_metal_decor")).build()
+            .register();
+
+    public static final DyedBlockList<Block> DYED_STONE_METAL = new DyedBlockList<>(color -> {
+        var baseID = "stone_metal";
+        var colorID = color.getSerializedName();
+        var blockID = colorID + "_" + baseID;
+        var ct = omni(baseID + "/" + colorID);
+        return REG.block(blockID, Block::new)
+                .properties(p -> p.mapColor(color.getMapColor()).sound(DnDecorSoundTypes.METAL_HEAVY).strength(1.5f,2f))
+                .blockstate((c, p) -> p.simpleBlock(c.get()))
+                .onRegister(CreateRegistrate.connectedTextures(() -> new EncasedCTBehaviour(ct)))
+                .onRegister(casingConnectivity((block, cc) -> cc.makeCasing(block, ct)))
+                .transform(pickaxeOnly())
+                .recipe((c, p) -> {
+                    ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, c.get(), 8)
+                            .pattern("ASA").pattern("SDS").pattern("ASA")
+                            .define('S', AllItems.IRON_SHEET.get()).define('A', AllPaletteStoneTypes.ASURINE.baseBlock.get()).define('D', color.getTag())
+                            .unlockedBy("has_" + c.getName(), has(c.get())).save(p, DnDecor.loc("crafting/" + c.getName()));
+                    ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, c.get(), 8)
+                            .pattern("SSS").pattern("SDS").pattern("SSS")
+                            .define('S', DnDecorTags.modItemTag("stone_metal_decor")).define('D', color.getTag())
+                            .unlockedBy("has_" + c.getName(), has(c.get())).save(p, DnDecor.loc("crafting/" + c.getName() + "_dyed"));
+                })
+                .blockstate((c, p) -> {
+                    var model = p.models().cubeAll(c.getName(), DnDecor.loc("block/" + baseID + "/" + colorID));
+                    p.simpleBlockItem(c.get(), model);
+                    p.simpleBlock(c.get(), model);
+                })
+                .item().tag(DnDecorTags.modItemTag("stone_metal_decor")).build()
+                .register();
+    });
 
     public static final DyedBlockList<VelvetBlock> DYED_VELVET_BLOCKS = new DyedBlockList<>(color -> velvetBlock(color.getSerializedName(), color.getMapColor(), color));
 

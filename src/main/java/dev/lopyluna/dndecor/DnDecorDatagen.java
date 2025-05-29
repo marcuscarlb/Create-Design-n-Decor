@@ -5,6 +5,7 @@ import com.google.gson.JsonObject;
 import com.simibubi.create.foundation.utility.FilesHelper;
 import com.tterrag.registrate.providers.RegistrateDataProvider;
 import dev.lopyluna.dndecor.content.datagen.DatagenTags;
+import dev.lopyluna.dndecor.content.datagen.ProcessingDnDecorRecipeGen;
 import dev.lopyluna.dndecor.content.datagen.recipes.MechanicalCraftingGen;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
@@ -18,6 +19,7 @@ import java.util.function.BiConsumer;
 import static dev.lopyluna.dndecor.DnDecor.MOD_ID;
 import static dev.lopyluna.dndecor.DnDecor.REG;
 
+@SuppressWarnings("unused")
 public class DnDecorDatagen {
     @SuppressWarnings("all")
     public static void gatherData(GatherDataEvent event) {
@@ -29,6 +31,7 @@ public class DnDecorDatagen {
         generator.addProvider(event.includeServer(), new MechanicalCraftingGen(output, lookupProvider));
 
         event.getGenerator().addProvider(true, REG.setDataProvider(new RegistrateDataProvider(REG, MOD_ID, event)));
+        if (event.includeServer()) ProcessingDnDecorRecipeGen.registerAll(generator, output, lookupProvider);
     }
 
     private static void addExtraRegistrateData() {

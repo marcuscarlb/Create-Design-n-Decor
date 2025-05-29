@@ -3,10 +3,10 @@
   "category": "building",
   "key": {
     "I": {
-      "item": "create:zinc_ingot"
+      "tag": "c:ingots/zinc"
     },
     "Z": {
-      "item": "create:zinc_block"
+      "tag": "c:storage_blocks/zinc"
     }
   },
   "pattern": [

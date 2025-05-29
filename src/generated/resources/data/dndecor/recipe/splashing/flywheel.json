@@ -1,0 +1,13 @@
+{
+  "type": "create:splashing",
+  "ingredients": [
+    {
+      "tag": "c:create/dyed_flywheels"
+    }
+  ],
+  "results": [
+    {
+      "id": "create:flywheel"
+    }
+  ]
+}

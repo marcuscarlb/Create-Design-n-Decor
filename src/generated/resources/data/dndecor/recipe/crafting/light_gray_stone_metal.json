@@ -9,7 +9,7 @@
       "tag": "c:dyes/light_gray"
     },
     "S": {
-      "item": "create:iron_sheet"
+      "tag": "c:plates/iron"
     }
   },
   "pattern": [

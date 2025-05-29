@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "dndecor:white_velvet_block"
+          "name": "minecraft:air"
         }
       ],
       "rolls": 1.0

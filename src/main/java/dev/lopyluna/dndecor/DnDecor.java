@@ -12,10 +12,7 @@ import net.createmod.catnip.lang.LangBuilder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.BucketItem;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.Item;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.IEventBus;
@@ -27,13 +24,16 @@ import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.registries.RegisterEvent;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @SuppressWarnings("unused")
 @Mod(DnDecor.MOD_ID)
 public class DnDecor {
     public static final String NAME = "Design n' Decor";
     public static final String MOD_ID = "dndecor";
 
-    public static final boolean LOAD_ALL_METALS = true;
+    public static final boolean LOAD_ALL_METALS = false;
 
     public static final CreateRegistrate REG = CreateRegistrate.create(MOD_ID).defaultCreativeTab((ResourceKey<CreativeModeTab>) null);
 
@@ -50,11 +50,11 @@ public class DnDecor {
 
         DnDecorStoneTypes.register(REG);
         DnDecorLangPartial.init();
-        DnDecorCreativeTabs.register(modEventBus);
         DnDecorTags.init();
         DnDecorItems.register();
         DnDecorBlocks.register();
         DnDecorBETypes.register();
+        DnDecorCreativeTabs.register(modEventBus);
 
         DnDecorConfigs.register(modLoadingContext, modContainer);
 
@@ -71,13 +71,17 @@ public class DnDecor {
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey().equals(DnDecorCreativeTabs.BASE_CREATIVE_TAB.getKey())) {
+            List<ItemStack> stacks = new ArrayList<>();
             for (RegistryEntry<Item, Item> entry : REG.getAll(Registries.ITEM)) {
                 Item item = entry.get();
                 if (item instanceof BlockItem) continue;
                 if (item instanceof BucketItem) continue;
                 var stack = item.getDefaultInstance();
                 if (stack.isEmpty()) continue;
-                //if (event.getTab().contains(stack)) continue;
+                if (stack.is(DnDecorTags.ItemTags.PALETTE_BLOCKS.tag)) {
+                    stacks.add(stack);
+                    continue;
+                }
                 event.accept(stack);
             }
             for (RegistryEntry<Block, Block> entry : REG.getAll(Registries.BLOCK)) {
@@ -85,9 +89,13 @@ public class DnDecor {
                 var item = block.asItem();
                 var stack = item.getDefaultInstance();
                 if (stack.isEmpty()) continue;
-                //if (event.getTab().contains(stack)) continue;
+                if (stack.is(DnDecorTags.ItemTags.PALETTE_BLOCKS.tag)) {
+                    stacks.add(stack);
+                    continue;
+                }
                 event.accept(stack);
             }
+            for (var stack : stacks) event.accept(stack);
         }
     }
 

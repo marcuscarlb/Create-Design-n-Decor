@@ -31,6 +31,7 @@ import dev.lopyluna.dndecor.DnDecor;
 import dev.lopyluna.dndecor.DnDecorUtils;
 import dev.lopyluna.dndecor.content.blocks.OrnateGrateBlock;
 import dev.lopyluna.dndecor.content.blocks.VelvetBlock;
+import dev.lopyluna.dndecor.register.DnDecorTags;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.data.recipes.RecipeCategory;
@@ -79,6 +80,7 @@ public class BlockTransgender {
                 .blockstate((c, p) -> p.simpleBlock(c.get(), p.models().cubeAll(c.getName(), Create.asResource("block/seat/top_" + colorId))))
                 .tag(AllTags.AllBlockTags.WINDMILL_SAILS.tag)
                 .item()
+                .tag(DnDecorTags.modItemTag("dyed_velvet_block"))
                 .build()
                 .register();
     }

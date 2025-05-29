@@ -9,7 +9,7 @@
       "tag": "c:dyes/yellow"
     },
     "S": {
-      "item": "create:iron_sheet"
+      "tag": "c:plates/iron"
     }
   },
   "pattern": [

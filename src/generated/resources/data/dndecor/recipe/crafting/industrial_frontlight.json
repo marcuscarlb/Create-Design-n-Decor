@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "B": {
+      "tag": "c:stones"
+    },
+    "G": [
+      {
+        "item": "minecraft:glowstone_dust"
+      },
+      {
+        "item": "minecraft:prismarine_crystals"
+      },
+      {
+        "item": "minecraft:blaze_rod"
+      }
+    ],
+    "M": {
+      "item": "create:industrial_iron_block"
+    }
+  },
+  "pattern": [
+    "GM",
+    "MB"
+  ],
+  "result": {
+    "count": 4,
+    "id": "dndecor:industrial_frontlight"
+  }
+}

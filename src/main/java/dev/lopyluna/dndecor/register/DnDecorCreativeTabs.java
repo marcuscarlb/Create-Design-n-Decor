@@ -1,7 +1,6 @@
 package dev.lopyluna.dndecor.register;
 
 import com.simibubi.create.AllCreativeModeTabs;
-import com.simibubi.create.AllItems;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.CreativeModeTab;
 import net.neoforged.bus.api.IEventBus;
@@ -17,7 +16,7 @@ public class DnDecorCreativeTabs {
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> BASE_CREATIVE_TAB = REG.register("base", () -> CreativeModeTab.builder()
             .title(DnDecorLangPartial.TITLE)
             .withTabsBefore(AllCreativeModeTabs.PALETTES_CREATIVE_TAB.getKey())
-            .icon(AllItems.CARDBOARD::asStack).build());
+            .icon(DnDecorBlocks.BRASS_FRONTLIGHT::asStack).build());
 
     public static void register(IEventBus modEventBus) {
         REG.register(modEventBus);

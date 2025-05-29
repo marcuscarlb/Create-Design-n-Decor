@@ -1,7 +1,6 @@
 package dev.lopyluna.dndecor.content.blocks.bolt;
 
 import com.simibubi.create.AllSoundEvents;
-import com.simibubi.create.Create;
 import com.simibubi.create.content.equipment.wrench.IWrenchable;
 import com.simibubi.create.content.kinetics.base.KineticBlockEntity;
 import net.minecraft.core.BlockPos;
@@ -129,8 +128,7 @@ public class BoltBlock extends Block implements IWrenchable {
         return InteractionResult.SUCCESS;
     }
 
-    @SuppressWarnings("deprecation")
     public void playRotateSound(Level level, BlockPos pos) {
-        AllSoundEvents.WRENCH_ROTATE.playOnServer(level, pos, 1, Create.RANDOM.nextFloat() + .5f);
+        AllSoundEvents.WRENCH_ROTATE.playOnServer(level, pos, 1, level.random.nextFloat() + .5f);
     }
 }

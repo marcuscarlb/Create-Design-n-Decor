@@ -1,14 +1,18 @@
 package dev.lopyluna.dndecor.register;
 
 import com.simibubi.create.foundation.data.CreateRegistrate;
+import com.tterrag.registrate.util.DataIngredient;
 import com.tterrag.registrate.util.nullness.NonNullSupplier;
 import dev.lopyluna.dndecor.DnDecor;
 import dev.lopyluna.dndecor.register.helpers.wood_types.BlockPattern;
 import dev.lopyluna.dndecor.register.helpers.wood_types.VariantEntry;
 import net.createmod.catnip.lang.Lang;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.material.MapColor;
@@ -31,13 +35,13 @@ public enum DnDecorStoneTypes {
             .register()),
 
     GABBRO(STANDARD_RANGE, r -> r.paletteStoneBlock("gabbro", () -> Blocks.POLISHED_DEEPSLATE, true, false)
-            .properties(p -> p.destroyTime(1.25f)
-                    .mapColor(MapColor.TERRACOTTA_LIGHT_GRAY))
+            .properties(p -> p.destroyTime(1.25f).mapColor(MapColor.TERRACOTTA_LIGHT_GRAY))
+            .recipe((c, p) -> p.smelting(DataIngredient.ingredient(Ingredient.of(Items.GRANITE), Items.GRANITE), RecipeCategory.BUILDING_BLOCKS, c, 0.1f))
             .register()),
 
     DOLOMITE(STANDARD_RANGE, r -> r.paletteStoneBlock("dolomite", () -> Blocks.TUFF, true, false)
-            .properties(p -> p.destroyTime(1.25f)
-                    .mapColor(MapColor.TERRACOTTA_WHITE))
+            .properties(p -> p.destroyTime(1.25f).mapColor(MapColor.TERRACOTTA_WHITE))
+            .recipe((c, p) -> p.smelting(DataIngredient.ingredient(Ingredient.of(Items.DIORITE), Items.DIORITE), RecipeCategory.BUILDING_BLOCKS, c, 0.1f))
             .register()),
 
     ;
@@ -52,9 +56,6 @@ public enum DnDecorStoneTypes {
     DnDecorStoneTypes(BlockPattern[] variantTypes, Function<CreateRegistrate, NonNullSupplier<Block>> factory) {
         this.factory = factory;
         this.variantTypes = variantTypes;
-    }
-    public NonNullSupplier<Block> getBaseBlock() {
-        return baseBlock;
     }
     public VariantEntry getVariants() {
         return variants;

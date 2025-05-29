@@ -11,15 +11,16 @@ import java.util.List;
 
 import static dev.lopyluna.dndecor.register.DnDecorTags.commonItemTag;
 
+@SuppressWarnings("unused")
 public class AllMetalTypes {
+    public static MetalType BRASS = new MetalType("Brass", SoundType.METAL, MapColor.TERRACOTTA_YELLOW, AllItems.BRASS_INGOT, commonItemTag("ingots/brass"));
+    public static MetalType ANDESITE = new MetalType("Andesite", SoundType.STONE, MapColor.STONE, AllItems.ANDESITE_ALLOY);
+    public static MetalType ZINC = new MetalType("Zinc", SoundType.METAL, MapColor.GLOW_LICHEN, AllItems.ZINC_INGOT, commonItemTag("ingots/zinc"));
     public static MetalType COPPER = new MetalType("Copper", SoundType.COPPER, MapColor.COLOR_ORANGE, () -> Items.COPPER_INGOT, commonItemTag("ingots/copper"));
+    public static MetalType INDUSTRIAL = new MetalType("Industrial", SoundType.NETHERITE_BLOCK, MapColor.COLOR_GRAY, AllBlocks.INDUSTRIAL_IRON_BLOCK);
     public static MetalType GOLD = new MetalType("Gold", SoundType.METAL, MapColor.COLOR_YELLOW, () -> Items.GOLD_INGOT, commonItemTag("ingots/gold"));
     public static MetalType IRON = new MetalType("Iron", SoundType.METAL, MapColor.SNOW, () -> Items.IRON_INGOT, commonItemTag("ingots/iron"));
     public static MetalType NETHERITE = new MetalType("Netherite", SoundType.NETHERITE_BLOCK, MapColor.COLOR_GRAY, () -> Items.NETHERITE_INGOT, commonItemTag("ingots/netherite"));
-    public static MetalType ANDESITE = new MetalType("Andesite", SoundType.STONE, MapColor.STONE, AllItems.ANDESITE_ALLOY);
-    public static MetalType ZINC = new MetalType("Zinc", SoundType.METAL, MapColor.GLOW_LICHEN, AllItems.ZINC_INGOT, commonItemTag("ingots/zinc"));
-    public static MetalType BRASS = new MetalType("Brass", SoundType.METAL, MapColor.TERRACOTTA_YELLOW, AllItems.BRASS_INGOT, commonItemTag("ingots/brass"));
-    public static MetalType INDUSTRIAL = new MetalType("Industrial", SoundType.NETHERITE_BLOCK, MapColor.COLOR_GRAY, AllBlocks.INDUSTRIAL_IRON_BLOCK);
 
     public static MetalType PLATINUM = new MetalType("Platinum", SoundType.METAL, MapColor.GLOW_LICHEN, commonItemTag("ingots/platinum"), List.of("unify", "modern_industrialization", "mythicmetals"));
     public static MetalType LEAD = new MetalType("Lead", SoundType.METAL, MapColor.COLOR_PURPLE, commonItemTag("ingots/lead"), List.of("unify", "tfmg", "mekanism", "thermal", "modern_industrialization"));

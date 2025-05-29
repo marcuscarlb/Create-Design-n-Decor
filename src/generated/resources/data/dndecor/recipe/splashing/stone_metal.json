@@ -1,0 +1,13 @@
+{
+  "type": "create:splashing",
+  "ingredients": [
+    {
+      "tag": "dndecor:dyed_stone_metal_decor"
+    }
+  ],
+  "results": [
+    {
+      "id": "dndecor:stone_metal"
+    }
+  ]
+}

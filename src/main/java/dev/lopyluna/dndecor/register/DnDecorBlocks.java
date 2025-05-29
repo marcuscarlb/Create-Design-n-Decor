@@ -30,6 +30,8 @@ import dev.lopyluna.dndecor.content.blocks.beam.BeamCTBehaviour;
 import dev.lopyluna.dndecor.content.blocks.diagonal_girder.DiagonalGirderBlock;
 import dev.lopyluna.dndecor.content.blocks.diagonal_girder.DiagonalGirderGenerator;
 import dev.lopyluna.dndecor.content.blocks.flywheel.FlywheelTypeBlock;
+import dev.lopyluna.dndecor.content.blocks.frontlight.Frontlight;
+import dev.lopyluna.dndecor.content.blocks.frontlight.FrontlightBlock;
 import dev.lopyluna.dndecor.content.blocks.full_belt.FullBeltBlock;
 import dev.lopyluna.dndecor.content.blocks.full_belt.FullBeltGenerator;
 import dev.lopyluna.dndecor.content.blocks.storage_container.ColoredStorageContainerBlock;
@@ -50,6 +52,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SlabBlock;
@@ -65,6 +69,7 @@ import net.neoforged.neoforge.common.Tags;
 
 import java.util.function.Function;
 
+import static com.simibubi.create.AllTags.commonItemTag;
 import static com.simibubi.create.api.behaviour.display.DisplaySource.displaySource;
 import static com.simibubi.create.api.behaviour.display.DisplayTarget.displayTarget;
 import static com.simibubi.create.foundation.data.CreateRegistrate.casingConnectivity;
@@ -142,7 +147,7 @@ public class DnDecorBlocks {
                 })
                 .transform(displayTarget(AllDisplayTargets.DISPLAY_BOARD))
                 .item()
-                .tag(DnDecorTags.commonItemTag("create/display_boards"))
+                .tag(DnDecorTags.commonItemTag("create/display_boards"), DnDecorTags.commonItemTag("create/dyed_display_boards"))
                 .transform(customItemModel())
                 .register();
     });
@@ -175,7 +180,7 @@ public class DnDecorBlocks {
                     BlockStateGen.axisBlock(c, p, getBlockModel(true, c, p));
                 })
                 .item()
-                .tag(DnDecorTags.commonItemTag("create/flywheels"))
+                .tag(DnDecorTags.commonItemTag("create/flywheels"), DnDecorTags.commonItemTag("create/dyed_flywheels"))
                 .transform(customItemModel())
                 .register();
     });
@@ -376,8 +381,8 @@ public class DnDecorBlocks {
                     .pattern("III")
                     .pattern("IZI")
                     .pattern("III")
-                    .define('I', AllItems.ZINC_INGOT)
-                    .define('Z', AllBlocks.ZINC_BLOCK)
+                    .define('I', commonItemTag("ingots/zinc"))
+                    .define('Z', commonItemTag("storage_blocks/zinc"))
                     .unlockedBy("has_" + c.getName(), has(c.get())).save(p, DnDecor.loc("crafting/" + c.getName()))
             ).transform(pickaxeOnly())
             .lang("Zinc Checker Tiles")
@@ -392,7 +397,7 @@ public class DnDecorBlocks {
             .transform(pickaxeOnly())
             .recipe((c, p) -> ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, c.get(), 4)
                     .pattern("AS").pattern("SA")
-                    .define('S', AllItems.IRON_SHEET.get()).define('A', AllPaletteStoneTypes.ASURINE.baseBlock.get())
+                    .define('S', commonItemTag("plates/iron")).define('A', AllPaletteStoneTypes.ASURINE.baseBlock.get())
                     .unlockedBy("has_" + c.getName(), has(c.get())).save(p, DnDecor.loc("crafting/" + c.getName())))
             .blockstate((c, p) -> {
                 var model = p.models().cubeAll(c.getName(), DnDecor.loc("block/stone_metal"));
@@ -416,7 +421,7 @@ public class DnDecorBlocks {
                 .recipe((c, p) -> {
                     ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, c.get(), 8)
                             .pattern("ASA").pattern("SDS").pattern("ASA")
-                            .define('S', AllItems.IRON_SHEET.get()).define('A', AllPaletteStoneTypes.ASURINE.baseBlock.get()).define('D', color.getTag())
+                            .define('S', commonItemTag("plates/iron")).define('A', AllPaletteStoneTypes.ASURINE.baseBlock.get()).define('D', color.getTag())
                             .unlockedBy("has_" + c.getName(), has(c.get())).save(p, DnDecor.loc("crafting/" + c.getName()));
                     ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, c.get(), 8)
                             .pattern("SSS").pattern("SDS").pattern("SSS")
@@ -428,7 +433,7 @@ public class DnDecorBlocks {
                     p.simpleBlockItem(c.get(), model);
                     p.simpleBlock(c.get(), model);
                 })
-                .item().tag(DnDecorTags.modItemTag("stone_metal_decor")).build()
+                .item().tag(DnDecorTags.modItemTag("stone_metal_decor"), DnDecorTags.modItemTag("dyed_stone_metal_decor")).build()
                 .register();
     });
 
@@ -619,6 +624,93 @@ public class DnDecorBlocks {
                 .onRegister(CreateRegistrate.connectedTextures(ColoredStorageContainerCTBehaviour::new))
                 .register();
     }
+
+    public static final BlockEntry<FrontlightBlock> BRASS_FRONTLIGHT = REG.block("brass_frontlight", FrontlightBlock::new)
+            .initialProperties(SharedProperties::softMetal)
+            .properties(p -> p.noOcclusion().sound(SoundType.NETHERITE_BLOCK).mapColor(MapColor.TERRACOTTA_YELLOW).lightLevel(FrontlightBlock::getLight))
+            .addLayer(() -> RenderType::cutoutMipped)
+            .transform(pickaxeOnly())
+            .blockstate((c, p) -> p.getVariantBuilder(c.get()).forAllStates(s -> {
+                var dir = s.getValue(FrontlightBlock.FACING);
+                var lit = s.getValue(FrontlightBlock.LIT);
+                var top = s.getValue(FrontlightBlock.ADDITIVE);
+                var rot = s.getValue(FrontlightBlock.ROTATED);
+                var target = "frontlight";
+                if (!lit) target = target + "_off";
+                if (top != Frontlight.EMPTY) target = top == Frontlight.TOP ? target + "_top" : target + "_grate" ;
+                if (rot) target = target + "_rot";
+                var refPath = "block/frontlight/";
+                var refModel = DnDecor.loc(refPath + target);
+                var texture = DnDecor.loc("block/" + c.getName());
+                ModelFile model = p.models().withExistingParent("block/" + c.getName() + "/" + target, refModel).texture("0", texture).texture("particle", texture);
+
+                if (lit && top == Frontlight.TOP && !rot) p.models().withExistingParent("block/" + c.getName(), DnDecor.loc(refPath + "frontlight_item")).texture("0", texture).texture("particle", texture);
+                return ConfiguredModel.builder().modelFile(model)
+                        .rotationX(dir == Direction.DOWN ? 90 : dir.getAxis().isHorizontal() ? 0 : 270)
+                        .rotationY(dir.getAxis().isVertical() ? 0 : (((int) dir.toYRot()) + 180) % 360).build();
+            })).recipe((c, p) -> ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, c.get(), 4)
+                    .pattern("GM").pattern("MB")
+                    .define('G', Ingredient.of(Items.GLOWSTONE_DUST, Items.PRISMARINE_CRYSTALS, Items.BLAZE_ROD))
+                    .define('M', DnDecorTags.commonItemTag("ingots/brass"))
+                    .define('B', Tags.Items.STONES)
+                    .unlockedBy("has_" + c.getName(), has(c.get()))
+                    .save(p, DnDecor.loc("crafting/" + c.getName()))).simpleItem()
+            .register();
+
+    @SuppressWarnings("all")
+    public static final MetalTypeBlockList<FrontlightBlock> METAL_TYPE_FRONTLIGHTS = new MetalTypeBlockList<FrontlightBlock>(type -> {
+        var metal = type.get();
+        if (metal.equals(AllMetalTypes.BRASS)) return BRASS_FRONTLIGHT;
+        if (metal.requireMods()) return null;
+        if (!DnDecor.LOAD_ALL_METALS) {
+            if (metal.modIDs.equals(MaterialTypeProvider.NA)) return null;
+            boolean anyModLoaded = metal.modIDs.isEmpty();
+            if (metal.requireMods()) for (String mod : metal.modIDs) if (ModList.get().isLoaded(mod)) { anyModLoaded = true; break; }
+            if (!anyModLoaded) return null;
+        }
+        var builder = REG.block(metal.id + "_frontlight", FrontlightBlock::new)
+                .initialProperties(SharedProperties::softMetal)
+                .properties(p -> p.noOcclusion().sound(SoundType.NETHERITE_BLOCK).mapColor(metal.color).lightLevel(FrontlightBlock::getLight))
+                .addLayer(() -> RenderType::cutoutMipped)
+                .transform(pickaxeOnly())
+                .blockstate((c, p) -> p.getVariantBuilder(c.get()).forAllStates(s -> {
+                    var dir = s.getValue(FrontlightBlock.FACING);
+                    var lit = s.getValue(FrontlightBlock.LIT);
+                    var top = s.getValue(FrontlightBlock.ADDITIVE);
+                    var rot = s.getValue(FrontlightBlock.ROTATED);
+                    var target = "frontlight";
+                    if (!lit) target = target + "_off";
+                    if (top != Frontlight.EMPTY) target = top == Frontlight.TOP ? target + "_top" : target + "_grate" ;
+                    if (rot) target = target + "_rot";
+                    var refPath = "block/frontlight/";
+                    var refModel = DnDecor.loc(refPath + target);
+                    var texture = DnDecor.loc("block/" + c.getName());
+                    ModelFile model = p.models().withExistingParent("block/" + c.getName() + "/" + target, refModel).texture("0", texture).texture("particle", texture);
+
+                    if (lit && top == Frontlight.TOP && !rot) p.models().withExistingParent("block/" + c.getName(), DnDecor.loc(refPath + "frontlight_item")).texture("0", texture).texture("particle", texture);
+                    return ConfiguredModel.builder()
+                            .modelFile(model)
+                            .rotationX(dir == Direction.DOWN ? 90 : dir.getAxis().isHorizontal() ? 0 : 270)
+                            .rotationY(dir.getAxis().isVertical() ? 0 : (((int) dir.toYRot()) + 180) % 360)
+                            .build();
+                }));
+
+        builder = builder.recipe((c, p) -> {
+            var ingredient = metal.getIngredient();
+            if (ingredient != null) {
+                ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, c.get(), 4)
+                        .pattern("GM")
+                        .pattern("MB")
+                        .define('G', Ingredient.of(Items.GLOWSTONE_DUST, Items.PRISMARINE_CRYSTALS, Items.BLAZE_ROD))
+                        .define('M', ingredient.toVanilla())
+                        .define('B', Tags.Items.STONES)
+                        .unlockedBy("has_" + c.getName(), has(c.get()))
+                        .save(p, DnDecor.loc("crafting/" + c.getName()));
+            }
+        });
+
+        return builder.simpleItem().register();
+    });
 
     @SuppressWarnings("all")
     public static final MetalTypeBlockList<Block> METAL_TYPE_FLOORS = new MetalTypeBlockList<Block>(type -> {

@@ -1,0 +1,13 @@
+{
+  "type": "create:splashing",
+  "ingredients": [
+    {
+      "tag": "dndecor:dyed_velvet_block"
+    }
+  ],
+  "results": [
+    {
+      "id": "dndecor:white_velvet_block"
+    }
+  ]
+}

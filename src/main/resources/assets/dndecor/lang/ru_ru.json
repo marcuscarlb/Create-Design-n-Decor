@@ -413,7 +413,7 @@
   "block.dndecor.zinc_frontlight": "Цинковый фасадный светильник",
   "item.design_decor.storage_container": "Контейнер для хранения",
   "item.dndecor.belt_connector": "Механический ремень (полный)",
-  "itemGroup.dndecor.base": "Create: Design n' Decor",
+  "itemGroup.dndecor.base": "Design n' Decor",
   "tag.item.dndecor.dark_metal_decor": "Декор из тёмного металла",
   "tag.item.dndecor.dyed_stone_metal_decor": "Декор из окрашенного металлизированного камня",
   "tag.item.dndecor.dyed_velvet_block": "Окрашенный бархат",
@@ -428,5 +428,4 @@
   "tag.item.dndecor.stone_types.packed_mud": "Саманные камни",
   "tag.item.dndecor.stone_types.stone": "Каменные камни",
   "tag.item.dndecor.stone_types.weathered_limestone": "Выветренно-известняковые камни"
-}
 }

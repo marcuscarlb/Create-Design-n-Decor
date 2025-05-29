@@ -8,7 +8,9 @@ import com.tterrag.registrate.providers.RegistrateBlockstateProvider;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import dev.lopyluna.dndecor.DnDecor;
 import dev.lopyluna.dndecor.content.blocks.bolt.BoltBlock;
+import dev.lopyluna.dndecor.register.DnDecorTags;
 import dev.lopyluna.dndecor.register.helpers.list_providers.MaterialTypeProvider;
+import dev.lopyluna.dndecor.register.helpers.MetalTypeHelper;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -17,26 +19,26 @@ import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 
 import java.util.function.Function;
 
-import static com.simibubi.create.foundation.data.TagGen.pickaxeOnly;
 import static dev.lopyluna.dndecor.DnDecor.REG;
 import static dev.lopyluna.dndecor.content.blocks.bolt.BoltBlock.FACING;
 import static dev.lopyluna.dndecor.content.blocks.bolt.BoltBlock.ROT;
 
+@SuppressWarnings("unused")
 public class BoltEntry<T extends Block> {
     public BlockEntry<BoltBlock> CROSS;
     public BlockEntry<BoltBlock> DASH;
     public BlockEntry<BoltBlock> DOT;
     public BlockEntry<BoltBlock> FLAT;
 
-
     public boolean is(Block entry) {
         return CROSS.get() == entry || DASH.get() == entry || DOT.get() == entry || FLAT.get() == entry;
     }
 
     public BlockBuilder<BoltBlock, CreateRegistrate> buildBolts(BlockBuilder<BoltBlock, CreateRegistrate> builder, MapColor color, String type, String boltType) {
-        return builder.initialProperties(SharedProperties::netheriteMetal).properties(p -> p.mapColor(color)).transform(pickaxeOnly())
+        return builder.initialProperties(SharedProperties::netheriteMetal).properties(p -> p.mapColor(color))
                 .blockstate((c, p) -> p.getVariantBuilder(c.get()).forAllStates(boltStates(c, p, type, boltType)))
-                .item().transform(b -> b.model((c, p) -> p.blockItem(() -> c.getEntry().getBlock(), "/block_0")).build());
+                .item()
+                .transform(b -> b.model((c, p) -> p.blockItem(() -> c.getEntry().getBlock(), "/block_0")).build());
     }
 
     public BoltEntry(MaterialTypeProvider.MetalType metal) {
@@ -68,6 +70,19 @@ public class BoltEntry<T extends Block> {
             var ingredient = metal.getIngredient();
             if (ingredient != null) p.stonecutting(ingredient, RecipeCategory.BUILDING_BLOCKS, c, 4);
         });
+
+        var crossMineable = DnDecorTags.modBlockTag("mineable/pickaxe/" + type + "_cross_bolt");
+        MetalTypeHelper.create("pickaxe", crossMineable);
+        builderCross.tag(crossMineable);
+        var dashMineable = DnDecorTags.modBlockTag("mineable/pickaxe/" + type + "_dash_bolt");
+        MetalTypeHelper.create("pickaxe", dashMineable);
+        builderDash.tag(dashMineable);
+        var dotMineable = DnDecorTags.modBlockTag("mineable/pickaxe/" + type + "_dot_bolt");
+        MetalTypeHelper.create("pickaxe", dotMineable);
+        builderDot.tag(dotMineable);
+        var flatMineable = DnDecorTags.modBlockTag("mineable/pickaxe/" + type + "_flat_bolt");
+        MetalTypeHelper.create("pickaxe", flatMineable);
+        builderFlat.tag(flatMineable);
 
         CROSS = builderCross.register();
         DASH = builderDash.register();

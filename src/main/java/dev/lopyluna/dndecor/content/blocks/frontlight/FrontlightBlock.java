@@ -62,7 +62,7 @@ public class FrontlightBlock extends Block implements IWrenchable {
     }
 
     protected boolean hasNeighborSignal(Level level, BlockPos pos, Direction direction) {
-        return level.hasSignal(pos.relative(direction), direction);
+        return level.hasSignal(pos.relative(direction), direction) || level.hasNeighborSignal(pos.relative(direction));
     }
 
     @Override

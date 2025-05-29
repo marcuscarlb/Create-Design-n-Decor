@@ -66,7 +66,7 @@ public class DnDecorTags {
     }
 
     public enum BlockTags {
-        DYED_BLOCKS,
+        DYED_BLOCKS
         ;
         public final TagKey<Block> tag;
         public final boolean alwaysDatagen;

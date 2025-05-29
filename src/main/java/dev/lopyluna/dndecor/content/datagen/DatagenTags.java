@@ -5,6 +5,8 @@ import com.simibubi.create.foundation.data.TagGen;
 import com.tterrag.registrate.providers.ProviderType;
 import com.tterrag.registrate.providers.RegistrateTagsProvider;
 import dev.lopyluna.dndecor.register.DnDecorTags;
+import dev.lopyluna.dndecor.register.helpers.MetalTypeHelper;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 
@@ -20,6 +22,14 @@ public class DatagenTags {
 
     private static void genBlockTags(RegistrateTagsProvider<Block> provIn) {
         TagGen.CreateTagsProvider<Block> prov = new TagGen.CreateTagsProvider<>(provIn, Block::builtInRegistryHolder);
+        var mineablePickaxe = prov.tag(BlockTags.MINEABLE_WITH_PICKAXE);
+        var mineableAxe = prov.tag(BlockTags.MINEABLE_WITH_AXE);
+        for (var tag : MetalTypeHelper.mineableBlocksTag) {
+            var pickaxe = tag.get("pickaxe");
+            if (pickaxe != null) mineablePickaxe.addOptionalTag(pickaxe);
+            var axe = tag.get("axe");
+            if (axe != null) mineableAxe.addOptionalTag(axe);
+        }
 
 
         for (DnDecorTags.BlockTags tag : DnDecorTags.BlockTags.values()) if (tag.alwaysDatagen) prov.getOrCreateRawBuilder(tag.tag);

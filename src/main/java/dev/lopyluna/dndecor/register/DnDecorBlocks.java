@@ -708,8 +708,9 @@ public class DnDecorBlocks {
                         .save(p, DnDecor.loc("crafting/" + c.getName()));
             }
         });
-
-        return builder.simpleItem().register();
+        if (metal.equals(AllMetalTypes.NETHERITE)) builder = builder.item().properties(p -> p.fireResistant()).build();
+        else builder = builder.simpleItem();
+        return builder.register();
     });
 
     @SuppressWarnings("all")
@@ -735,6 +736,8 @@ public class DnDecorBlocks {
             var ingredient = metal.getIngredient();
             if (ingredient != null) p.stonecutting(ingredient, RecipeCategory.BUILDING_BLOCKS, c, 2);
         });
+        if (metal.equals(AllMetalTypes.NETHERITE)) builder = builder.item().properties(p -> p.fireResistant()).build();
+        else builder = builder.simpleItem();
         return builder.simpleItem().register();
     });
 
@@ -764,12 +767,13 @@ public class DnDecorBlocks {
                     p.models().withExistingParent("block/" + c.getName() + "/item", DnDecor.loc("block/large_chain")).texture("0", DnDecor.loc("block/" + metal.id + "_large_chain"));
                     BlockStateGen.axisBlock(c, p, getBlockModel(true, c, p));
                 }).tag(AllTags.AllBlockTags.BRITTLE.tag, BlockTags.CLIMBABLE);
-
         builder = builder.recipe((c, p) -> {
             var ingredient = metal.getIngredient();
             if (ingredient != null) p.stonecutting(ingredient, RecipeCategory.BUILDING_BLOCKS, c, 4);
         });
-        return builder.simpleItem().register();
+        if (metal.equals(AllMetalTypes.NETHERITE)) builder = builder.item().properties(p -> p.fireResistant()).build();
+        else builder = builder.simpleItem();
+        return builder.register();
     });
 
     public static final MetalTypeBoltBlockList<?> METAL_TYPE_BOLTS = new MetalTypeBoltBlockList<>(type -> {

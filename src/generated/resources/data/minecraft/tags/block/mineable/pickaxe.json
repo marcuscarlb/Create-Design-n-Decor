@@ -299,387 +299,99 @@
     "dndecor:large_iron_chain",
     "dndecor:large_netherite_chain",
     {
-      "id": "#dndecor:mineable/pickaxe/brass_cross_bolt",
+      "id": "#dndecor:mineable/pickaxe/brass_bolt",
       "required": false
     },
     {
-      "id": "#dndecor:mineable/pickaxe/brass_dash_bolt",
+      "id": "#dndecor:mineable/pickaxe/andesite_bolt",
       "required": false
     },
     {
-      "id": "#dndecor:mineable/pickaxe/brass_dot_bolt",
+      "id": "#dndecor:mineable/pickaxe/zinc_bolt",
       "required": false
     },
     {
-      "id": "#dndecor:mineable/pickaxe/brass_flat_bolt",
+      "id": "#dndecor:mineable/pickaxe/copper_bolt",
       "required": false
     },
     {
-      "id": "#dndecor:mineable/pickaxe/andesite_cross_bolt",
+      "id": "#dndecor:mineable/pickaxe/industrial_bolt",
       "required": false
     },
     {
-      "id": "#dndecor:mineable/pickaxe/andesite_dash_bolt",
+      "id": "#dndecor:mineable/pickaxe/gold_bolt",
       "required": false
     },
     {
-      "id": "#dndecor:mineable/pickaxe/andesite_dot_bolt",
+      "id": "#dndecor:mineable/pickaxe/iron_bolt",
       "required": false
     },
     {
-      "id": "#dndecor:mineable/pickaxe/andesite_flat_bolt",
+      "id": "#dndecor:mineable/pickaxe/netherite_bolt",
       "required": false
     },
     {
-      "id": "#dndecor:mineable/pickaxe/zinc_cross_bolt",
+      "id": "#dndecor:mineable/pickaxe/platinum_bolt",
       "required": false
     },
     {
-      "id": "#dndecor:mineable/pickaxe/zinc_dash_bolt",
+      "id": "#dndecor:mineable/pickaxe/lead_bolt",
       "required": false
     },
     {
-      "id": "#dndecor:mineable/pickaxe/zinc_dot_bolt",
+      "id": "#dndecor:mineable/pickaxe/silver_bolt",
       "required": false
     },
     {
-      "id": "#dndecor:mineable/pickaxe/zinc_flat_bolt",
+      "id": "#dndecor:mineable/pickaxe/tin_bolt",
       "required": false
     },
     {
-      "id": "#dndecor:mineable/pickaxe/copper_cross_bolt",
+      "id": "#dndecor:mineable/pickaxe/uranium_bolt",
       "required": false
     },
     {
-      "id": "#dndecor:mineable/pickaxe/copper_dash_bolt",
+      "id": "#dndecor:mineable/pickaxe/aluminum_bolt",
       "required": false
     },
     {
-      "id": "#dndecor:mineable/pickaxe/copper_dot_bolt",
+      "id": "#dndecor:mineable/pickaxe/nickel_bolt",
       "required": false
     },
     {
-      "id": "#dndecor:mineable/pickaxe/copper_flat_bolt",
+      "id": "#dndecor:mineable/pickaxe/tungsten_bolt",
       "required": false
     },
     {
-      "id": "#dndecor:mineable/pickaxe/industrial_cross_bolt",
+      "id": "#dndecor:mineable/pickaxe/steel_bolt",
       "required": false
     },
     {
-      "id": "#dndecor:mineable/pickaxe/industrial_dash_bolt",
+      "id": "#dndecor:mineable/pickaxe/electrum_bolt",
       "required": false
     },
     {
-      "id": "#dndecor:mineable/pickaxe/industrial_dot_bolt",
+      "id": "#dndecor:mineable/pickaxe/bronze_bolt",
       "required": false
     },
     {
-      "id": "#dndecor:mineable/pickaxe/industrial_flat_bolt",
+      "id": "#dndecor:mineable/pickaxe/cast_iron_bolt",
       "required": false
     },
     {
-      "id": "#dndecor:mineable/pickaxe/gold_cross_bolt",
+      "id": "#dndecor:mineable/pickaxe/invar_bolt",
       "required": false
     },
     {
-      "id": "#dndecor:mineable/pickaxe/gold_dash_bolt",
+      "id": "#dndecor:mineable/pickaxe/constantan_bolt",
       "required": false
     },
     {
-      "id": "#dndecor:mineable/pickaxe/gold_dot_bolt",
+      "id": "#dndecor:mineable/pickaxe/wrought_iron_bolt",
       "required": false
     },
     {
-      "id": "#dndecor:mineable/pickaxe/gold_flat_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/iron_cross_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/iron_dash_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/iron_dot_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/iron_flat_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/netherite_cross_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/netherite_dash_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/netherite_dot_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/netherite_flat_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/platinum_cross_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/platinum_dash_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/platinum_dot_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/platinum_flat_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/lead_cross_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/lead_dash_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/lead_dot_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/lead_flat_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/silver_cross_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/silver_dash_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/silver_dot_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/silver_flat_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/tin_cross_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/tin_dash_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/tin_dot_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/tin_flat_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/uranium_cross_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/uranium_dash_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/uranium_dot_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/uranium_flat_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/aluminum_cross_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/aluminum_dash_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/aluminum_dot_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/aluminum_flat_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/nickel_cross_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/nickel_dash_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/nickel_dot_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/nickel_flat_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/tungsten_cross_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/tungsten_dash_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/tungsten_dot_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/tungsten_flat_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/steel_cross_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/steel_dash_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/steel_dot_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/steel_flat_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/electrum_cross_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/electrum_dash_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/electrum_dot_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/electrum_flat_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/bronze_cross_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/bronze_dash_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/bronze_dot_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/bronze_flat_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/cast_iron_cross_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/cast_iron_dash_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/cast_iron_dot_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/cast_iron_flat_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/invar_cross_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/invar_dash_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/invar_dot_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/invar_flat_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/constantan_cross_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/constantan_dash_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/constantan_dot_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/constantan_flat_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/wrought_iron_cross_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/wrought_iron_dash_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/wrought_iron_dot_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/wrought_iron_flat_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/tarnished_gold_cross_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/tarnished_gold_dash_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/tarnished_gold_dot_bolt",
-      "required": false
-    },
-    {
-      "id": "#dndecor:mineable/pickaxe/tarnished_gold_flat_bolt",
+      "id": "#dndecor:mineable/pickaxe/tarnished_gold_bolt",
       "required": false
     }
   ]

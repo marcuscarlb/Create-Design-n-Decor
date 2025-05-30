@@ -228,7 +228,7 @@ public class DnDecorBlocks {
 
     public static final StoneTypeBlockList<MillstoneBlock> STONE_TYPE_MILLSTONE = new StoneTypeBlockList<>((block, id) -> {
         if (id.equals("andesite")) return AllBlocks.MILLSTONE;
-        return REG.block(id + "_millstone", p -> new MillstoneTypeBlock(block, p))
+        return REG.block(id + "_millstone", p -> new MillstoneTypeBlock(id, block, p))
                 .properties(p -> p.mapColor(block.get().defaultMapColor()).sound(block.get().defaultBlockState().getSoundType()))
                 .initialProperties(SharedProperties::stone)
                 .transform(pickaxeOnly())

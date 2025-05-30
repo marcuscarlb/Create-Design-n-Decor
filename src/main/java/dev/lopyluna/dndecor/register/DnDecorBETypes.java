@@ -66,22 +66,9 @@ public class DnDecorBETypes {
         return REG.blockEntity(id + "_millstone", MillstoneBlockEntity::new)
                 .visual(() -> SingleAxisRotatingVisual.of(PartialModel.of(DnDecor.loc("block/" + id + "_millstone/inner"))), false)
                 .validBlock(DnDecorBlocks.STONE_TYPE_MILLSTONE.get(block))
-                .renderer(() -> c -> new MillstoneTypeRenderer(id, c))
+                .renderer(() -> MillstoneTypeRenderer::new)
                 .register();
     });
-
-    //public static final BlockEntityEntry<MillstoneBlockEntity> MILLSTONE = REGISTRATE
-    //        .blockEntity("millstone", MillstoneBlockEntity::new)
-    //        .visual(() -> SingleAxisRotatingVisual.of(AllPartialModels.MILLSTONE_COG), false)
-    //        .validBlocks(AllBlocks.MILLSTONE)
-    //        .renderer(() -> MillstoneRenderer::new)
-    //        .register();
-    //public static final BlockEntityEntry<CrushingWheelBlockEntity> CRUSHING_WHEEL = REG
-    //        .blockEntity("crushing_wheel", CrushingWheelBlockEntity::new)
-    //        .visual(() -> SingleAxisRotatingVisual.of(AllPartialModels.CRUSHING_WHEEL), false)
-    //        .validBlocks(DnDecorBlocks.STONE_TYPE_CRUSHING_WHEELS.toArray())
-    //        .renderer(() -> KineticBlockEntityRenderer::new)
-    //        .register();
 
     public static void register() {}
 }

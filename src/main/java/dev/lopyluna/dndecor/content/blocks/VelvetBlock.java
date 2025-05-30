@@ -1,6 +1,5 @@
 package dev.lopyluna.dndecor.content.blocks;
 
-import com.simibubi.create.content.contraptions.bearing.SailBlock;
 import com.simibubi.create.foundation.utility.BlockHelper;
 import dev.lopyluna.dndecor.register.DnDecorBlocks;
 import net.createmod.catnip.data.Iterate;

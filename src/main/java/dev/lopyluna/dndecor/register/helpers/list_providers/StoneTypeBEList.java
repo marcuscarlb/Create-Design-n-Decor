@@ -2,7 +2,6 @@ package dev.lopyluna.dndecor.register.helpers.list_providers;
 
 import com.tterrag.registrate.util.entry.BlockEntityEntry;
 import com.tterrag.registrate.util.nullness.NonNullSupplier;
-import dev.lopyluna.dndecor.DnDecor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import org.jetbrains.annotations.NotNull;
@@ -12,6 +11,7 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.function.BiFunction;
 
+@SuppressWarnings("unused")
 public class StoneTypeBEList<T extends BlockEntity> implements Iterable<BlockEntityEntry<T>> {
     private final BlockEntityEntry<?>[] values;
 

@@ -9,9 +9,15 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 
 public class MillstoneTypeBlock extends MillstoneBlock {
     NonNullSupplier<Block> block;
-    public MillstoneTypeBlock(NonNullSupplier<Block> block, Properties properties) {
+    String id;
+    public MillstoneTypeBlock(String id, NonNullSupplier<Block> block, Properties properties) {
         super(properties);
         this.block = block;
+        this.id = id;
+    }
+
+    public String getId() {
+        return id;
     }
 
     @Override

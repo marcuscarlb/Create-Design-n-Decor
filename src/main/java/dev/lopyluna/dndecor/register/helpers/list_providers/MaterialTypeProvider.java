@@ -2,10 +2,8 @@ package dev.lopyluna.dndecor.register.helpers.list_providers;
 
 import com.simibubi.create.content.decoration.palettes.AllPaletteStoneTypes;
 import com.tterrag.registrate.util.DataIngredient;
-import com.tterrag.registrate.util.entry.ItemEntry;
 import com.tterrag.registrate.util.entry.ItemProviderEntry;
 import com.tterrag.registrate.util.nullness.NonNullSupplier;
-import dev.lopyluna.dndecor.register.DnDecorConfigs;
 import dev.lopyluna.dndecor.register.DnDecorStoneTypes;
 import net.createmod.catnip.lang.Lang;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -26,6 +24,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Supplier;
 
+@SuppressWarnings("unused")
 public class MaterialTypeProvider {
 
     public static Map<NonNullSupplier<Block>, String> stoneTypesRegister = new HashMap<>();

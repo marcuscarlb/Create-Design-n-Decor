@@ -19,9 +19,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.fml.common.Mod;
-import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
-import net.neoforged.neoforge.registries.RegisterEvent;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -59,14 +57,7 @@ public class DnDecor {
         DnDecorConfigs.register(modLoadingContext, modContainer);
 
         modEventBus.addListener(this::addCreative);
-        //modEventBus.addListener(DnDecor::init);*
-        //modEventBus.addListener(DnDecor::onRegister);*
         modEventBus.addListener(EventPriority.LOWEST, DnDecorDatagen::gatherData);
-    }
-
-    public static void init(final FMLCommonSetupEvent event) {
-    }
-    public static void onRegister(final RegisterEvent event) {
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {

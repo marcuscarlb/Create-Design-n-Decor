@@ -33,7 +33,7 @@ public class DnDecor {
     public static final String NAME = "Design n' Decor";
     public static final String MOD_ID = "dndecor";
 
-    public static final boolean LOAD_ALL_METALS = true;
+    public static final boolean LOAD_ALL_METALS = false;
 
     public static final CreateRegistrate REG = CreateRegistrate.create(MOD_ID).defaultCreativeTab((ResourceKey<CreativeModeTab>) null);
 

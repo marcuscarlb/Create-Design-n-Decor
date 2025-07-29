@@ -10,13 +10,13 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 
-import static dev.lopyluna.dndecor.DnDecor.REG;
+import static dev.lopyluna.dndecor.DnDecor.REGISTRATE;
 
 @SuppressWarnings("deprecation")
 public class DatagenTags {
     public static void addGenerators() {
-        REG.addDataGenerator(ProviderType.BLOCK_TAGS, DatagenTags::genBlockTags);
-        REG.addDataGenerator(ProviderType.ITEM_TAGS, DatagenTags::genItemTags);
+        REGISTRATE.addDataGenerator(ProviderType.BLOCK_TAGS, DatagenTags::genBlockTags);
+        REGISTRATE.addDataGenerator(ProviderType.ITEM_TAGS, DatagenTags::genItemTags);
 
     }
 

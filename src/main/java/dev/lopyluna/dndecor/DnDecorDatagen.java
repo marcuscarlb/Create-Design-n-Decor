@@ -3,6 +3,7 @@ package dev.lopyluna.dndecor;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.simibubi.create.foundation.utility.FilesHelper;
+import com.tterrag.registrate.providers.ProviderType;
 import com.tterrag.registrate.providers.RegistrateDataProvider;
 import dev.lopyluna.dndecor.content.datagen.DatagenTags;
 import dev.lopyluna.dndecor.content.datagen.ProcessingDnDecorRecipeGen;
@@ -17,7 +18,7 @@ import java.util.concurrent.CompletableFuture;
 import java.util.function.BiConsumer;
 
 import static dev.lopyluna.dndecor.DnDecor.MOD_ID;
-import static dev.lopyluna.dndecor.DnDecor.REG;
+import static dev.lopyluna.dndecor.DnDecor.REGISTRATE;
 
 @SuppressWarnings("unused")
 public class DnDecorDatagen {
@@ -30,13 +31,18 @@ public class DnDecorDatagen {
 
         generator.addProvider(event.includeServer(), new MechanicalCraftingGen(output, lookupProvider));
 
-        event.getGenerator().addProvider(true, REG.setDataProvider(new RegistrateDataProvider(REG, MOD_ID, event)));
+        event.getGenerator().addProvider(true, REGISTRATE.setDataProvider(new RegistrateDataProvider(REGISTRATE, MOD_ID, event)));
         if (event.includeServer()) ProcessingDnDecorRecipeGen.registerAll(generator, output, lookupProvider);
     }
 
     private static void addExtraRegistrateData() {
         DatagenTags.addGenerators();
+        REGISTRATE.addDataGenerator(ProviderType.LANG, provider -> {
+            BiConsumer<String, String> langConsumer = provider::add;
 
+            provideDefaultLang("tooltips", langConsumer);
+
+        });
     }
 
     private static void provideDefaultLang(String fileName, BiConsumer<String, String> consumer) {

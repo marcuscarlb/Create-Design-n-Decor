@@ -7,6 +7,6 @@ public class DnDecorSoundEvents {
 
 
     private static AllSoundEvents.SoundEntryBuilder create(String name) {
-        return AllSoundEvents.create(DnDecor.loc(name));
+        return AllSoundEvents.create(DnDecor.asResource(name));
     }
 }

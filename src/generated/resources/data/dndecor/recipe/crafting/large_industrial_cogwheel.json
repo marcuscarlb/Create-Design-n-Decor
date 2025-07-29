@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "create:shaft"
+    },
+    {
+      "item": "dndecor:industrial_plating_block"
+    },
+    {
+      "item": "dndecor:industrial_plating_block"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "dndecor:large_industrial_cogwheel"
+  }
+}

@@ -63,7 +63,7 @@ public class DStress extends ConfigBase {
     public static <B extends Block, P> NonNullUnaryOperator<BlockBuilder<B, P>> setImpact(double value) {
         return builder -> {
             assertFromCreateD2D(builder);
-            DEFAULT_IMPACTS.put(DnDecor.loc(builder.getName()), value);
+            DEFAULT_IMPACTS.put(DnDecor.asResource(builder.getName()), value);
             return builder;
         };
     }
@@ -71,7 +71,7 @@ public class DStress extends ConfigBase {
     public static <B extends Block, P> NonNullUnaryOperator<BlockBuilder<B, P>> setCapacity(double value) {
         return builder -> {
             assertFromCreateD2D(builder);
-            DEFAULT_CAPACITIES.put(DnDecor.loc(builder.getName()), value);
+            DEFAULT_CAPACITIES.put(DnDecor.asResource(builder.getName()), value);
             return builder;
         };
     }

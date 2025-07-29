@@ -33,20 +33,25 @@ public class DnDecor {
 
     public static final boolean LOAD_ALL_METALS = false;
 
-    public static final CreateRegistrate REG = CreateRegistrate.create(MOD_ID).defaultCreativeTab((ResourceKey<CreativeModeTab>) null);
+    public static final CreateRegistrate REGISTRATE = CreateRegistrate.create(MOD_ID)
+            .defaultCreativeTab((ResourceKey<CreativeModeTab>) null)
+            .setTooltipModifierFactory(item ->
+                    new ItemDescription.Modifier(item, FontHelper.Palette.STANDARD_CREATE)
+                            .andThen(TooltipModifier.mapNull(KineticStats.create(item)))
+            );;
 
     static {
-        REG.setTooltipModifierFactory(item -> new ItemDescription.Modifier(item, FontHelper.Palette.STANDARD_CREATE)
+        REGISTRATE.setTooltipModifierFactory(item -> new ItemDescription.Modifier(item, FontHelper.Palette.STANDARD_CREATE)
                 .andThen(TooltipModifier.mapNull(create(item))));
     }
 
     public DnDecor(IEventBus modEventBus, ModContainer modContainer) {
         ModLoadingContext modLoadingContext = ModLoadingContext.get();
-        REG.registerEventListeners(modEventBus);
+        REGISTRATE.registerEventListeners(modEventBus);
 
         AllMetalTypes.register();
 
-        DnDecorStoneTypes.register(REG);
+        DnDecorStoneTypes.register(REGISTRATE);
         DnDecorLangPartial.init();
         DnDecorTags.init();
         DnDecorItems.register();
@@ -63,7 +68,7 @@ public class DnDecor {
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey().equals(DnDecorCreativeTabs.BASE_CREATIVE_TAB.getKey())) {
             List<ItemStack> stacks = new ArrayList<>();
-            for (RegistryEntry<Item, Item> entry : REG.getAll(Registries.ITEM)) {
+            for (RegistryEntry<Item, Item> entry : REGISTRATE.getAll(Registries.ITEM)) {
                 Item item = entry.get();
                 if (item instanceof BlockItem) continue;
                 if (item instanceof BucketItem) continue;
@@ -75,7 +80,7 @@ public class DnDecor {
                 }
                 event.accept(stack);
             }
-            for (RegistryEntry<Block, Block> entry : REG.getAll(Registries.BLOCK)) {
+            for (RegistryEntry<Block, Block> entry : REGISTRATE.getAll(Registries.BLOCK)) {
                 var block = entry.get();
                 var item = block.asItem();
                 var stack = item.getDefaultInstance();
@@ -94,7 +99,7 @@ public class DnDecor {
         return new LangBuilder(MOD_ID);
     }
 
-    public static ResourceLocation loc(String loc) {
+    public static ResourceLocation asResource(String loc) {
         return ResourceLocation.fromNamespaceAndPath(MOD_ID, loc);
     }
 

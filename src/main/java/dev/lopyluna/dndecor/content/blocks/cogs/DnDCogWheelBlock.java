@@ -6,13 +6,13 @@ import com.simibubi.create.content.decoration.encasing.EncasableBlock;
 import com.simibubi.create.content.kinetics.base.IRotate;
 import com.simibubi.create.content.kinetics.base.KineticBlockEntity;
 import com.simibubi.create.content.kinetics.simpleRelays.AbstractSimpleShaftBlock;
+import com.simibubi.create.content.kinetics.simpleRelays.CogWheelBlock;
 import com.simibubi.create.content.kinetics.simpleRelays.ICogWheel;
 import com.simibubi.create.content.kinetics.speedController.SpeedControllerBlock;
 import com.simibubi.create.foundation.advancement.AllAdvancements;
 import dev.engine_room.flywheel.lib.model.baked.PartialModel;
 import dev.lopyluna.dndecor.register.DnDecorBETypes;
 import net.createmod.catnip.data.Iterate;
-import net.createmod.catnip.data.Pair;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -41,7 +41,7 @@ import static net.minecraft.core.Direction.Axis;
 
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
-public class DnDCogWheelBlock extends AbstractSimpleShaftBlock implements ICogWheel, EncasableBlock {
+public class DnDCogWheelBlock extends CogWheelBlock {
 
     boolean isLarge;
 
@@ -50,20 +50,16 @@ public class DnDCogWheelBlock extends AbstractSimpleShaftBlock implements ICogWh
     public PartialModel customModel;
 
     public DnDCogWheelBlock(DyeColor color, boolean large, Properties properties) {
-        super(properties);
+        super(large, properties);
         this.color = color;
         this.isLarge = large;
     }
 
     public DnDCogWheelBlock(PartialModel model, boolean large, Properties properties) {
-        super(properties);
+        super(large, properties);
         this.customModel = model;
         this.isLarge = large;
     }
-
-
-
-
 
     @Override
     public boolean isLargeCog() {
@@ -128,18 +124,6 @@ public class DnDCogWheelBlock extends AbstractSimpleShaftBlock implements ICogWh
         }
     }
 
-    @Override
-    protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
-        if (player.isShiftKeyDown() || !player.mayBuild())
-            return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
-
-        ItemInteractionResult result = tryEncase(state, level, pos, stack, player, hand, hitResult);
-        if (result.consumesAction())
-            return result;
-
-        return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
-    }
-
     public static boolean isValidCogwheelPosition(boolean large, LevelReader worldIn, BlockPos pos, Axis cogAxis) {
         for (Direction facing : Iterate.directions) {
             if (facing.getAxis() == cogAxis)
@@ -202,11 +186,6 @@ public class DnDCogWheelBlock extends AbstractSimpleShaftBlock implements ICogWh
     @Override
     public float getParticleInitialRadius() {
         return isLargeCog() ? 1f : .75f;
-    }
-
-    @Override
-    public boolean isDedicatedCogWheel() {
-        return true;
     }
 
     @Override

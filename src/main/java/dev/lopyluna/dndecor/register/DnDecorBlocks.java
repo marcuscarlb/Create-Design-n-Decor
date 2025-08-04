@@ -11,6 +11,7 @@ import com.simibubi.create.content.kinetics.belt.BeltModel;
 import com.simibubi.create.content.kinetics.crusher.CrushingWheelBlock;
 import com.simibubi.create.content.kinetics.flywheel.FlywheelBlock;
 import com.simibubi.create.content.kinetics.millstone.MillstoneBlock;
+import com.simibubi.create.content.kinetics.simpleRelays.BracketedKineticBlockModel;
 import com.simibubi.create.content.logistics.vault.ItemVaultBlock;
 import com.simibubi.create.content.trains.display.FlapDisplayBlock;
 import com.simibubi.create.foundation.block.DyedBlockList;
@@ -277,13 +278,14 @@ public class DnDecorBlocks {
             .properties(p -> p.noOcclusion())
             .transform(axeOrPickaxe())
             .transform(DStress.setNoImpact())
-             .recipe((c, p) ->
+            .recipe((c, p) ->
                      ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS,c.get())
                              .requires(AllBlocks.SHAFT)
                              .requires(DnDecorBlocks.DARK_METAL_BLOCK)
                              .unlockedBy("has_" + c.getName(), has(c.get()))
                              .save(p, DnDecor.asResource("crafting/" + c.getName()))
              )
+            .onRegister(CreateRegistrate.blockModel(() -> BracketedKineticBlockModel::new))
             .blockstate(DnDecorBlockStateGen.cogwheelBlockState(false))
             .item(DnDCogwheelBlockItem::new)
             .transform(customItemModel())
@@ -302,6 +304,7 @@ public class DnDecorBlocks {
                             .unlockedBy("has_" + c.getName(), has(c.get()))
                             .save(p, DnDecor.asResource("crafting/" + c.getName()))
             )
+            .onRegister(CreateRegistrate.blockModel(() -> BracketedKineticBlockModel::new))
             .blockstate(DnDecorBlockStateGen.cogwheelBlockState(true))
             .item(DnDCogwheelBlockItem::new)
             .transform(customItemModel())
@@ -374,6 +377,7 @@ public class DnDecorBlocks {
 
                     BlockStateGen.axisBlock(c, p, getBlockModel(true, c, p));
                 })
+                .onRegister(CreateRegistrate.blockModel(() -> BracketedKineticBlockModel::new))
                 .item(DnDCogwheelBlockItem::new)
                 .transform(customItemModel())
                 .register();
@@ -396,6 +400,7 @@ public class DnDecorBlocks {
                                 .unlockedBy("has_" + c.getName(), has(c.get()))
                                 .save(p, DnDecor.asResource("crafting/" + c.getName()))
                 )
+                .onRegister(CreateRegistrate.blockModel(() -> BracketedKineticBlockModel::new))
                 .blockstate((c, p) -> {
                     p.models().withExistingParent("block/" + c.getName() + "/block_shaftless", Create.asResource("block/large_cogwheel_shaftless"))
                             .texture("4", DnDecor.asResource("block/large_cogwheels/" + colorName))

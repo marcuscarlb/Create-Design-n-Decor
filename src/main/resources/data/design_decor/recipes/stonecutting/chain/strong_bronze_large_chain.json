@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:copper_ingot"
+  },
+  "result": "design_decor:strong_bronze_large_chain",
+  "count": 4
+}

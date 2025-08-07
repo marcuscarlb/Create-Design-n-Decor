@@ -1,0 +1,23 @@
+
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IAI",
+    "I I",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "create:iron_nugget"
+    },
+    "A": {
+      "item": "create:andesite_alloy"
+    }
+  },
+  "result": {
+    "item": "design_decor:gas_tank",
+    "count": 1
+
+
+  }
+}

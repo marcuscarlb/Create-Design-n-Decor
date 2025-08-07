@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "axis=x,beam=both": {
+      "model": "design_decor:block/beam/block_x"
+    },
+    "axis=x,beam=bottom": {
+      "model": "design_decor:block/beam/bottom_x"
+    },
+    "axis=x,beam=top": {
+      "model": "design_decor:block/beam/top_x"
+    },
+    "axis=z,beam=both": {
+      "model": "design_decor:block/beam/block_z"
+    },
+    "axis=z,beam=bottom": {
+      "model": "design_decor:block/beam/bottom_z"
+    },
+    "axis=z,beam=top": {
+      "model": "design_decor:block/beam/top_z"
+    }
+  }
+}

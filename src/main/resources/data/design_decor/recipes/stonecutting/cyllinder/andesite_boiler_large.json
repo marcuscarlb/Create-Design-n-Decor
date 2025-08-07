@@ -1,0 +1,9 @@
+
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "create:andesite_alloy_block"
+  },
+  "result": "design_decor:andesite_boiler_large",
+  "count": 1
+}

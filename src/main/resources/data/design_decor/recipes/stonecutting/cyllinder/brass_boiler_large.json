@@ -1,0 +1,9 @@
+
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "create:brass_block"
+  },
+  "result": "design_decor:brass_boiler_large",
+  "count": 1
+}

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 4,
+  "ingredient": {
+    "item": "create:iron_sheet"
+  },
+  "result": "design_decor:metal_plate"
+}

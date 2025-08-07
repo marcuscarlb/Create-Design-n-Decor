@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "design_decor:red_container",
+    "design_decor:blue_container",
+    "design_decor:green_container",
+    "design_decor:black_container",
+    "design_decor:brown_container",
+    "design_decor:cyan_container",
+    "design_decor:gray_container",
+    "design_decor:light_blue_container",
+    "design_decor:light_gray_container",
+    "design_decor:lime_container",
+    "design_decor:magenta_container",
+    "design_decor:orange_container",
+    "design_decor:pink_container",
+    "design_decor:purple_container",
+    "design_decor:white_container",
+    "design_decor:yellow_container"
+  ]
+}

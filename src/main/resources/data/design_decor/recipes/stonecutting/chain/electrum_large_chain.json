@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:gold_ingot"
+  },
+  "result": "design_decor:electrum_large_chain",
+  "count": 4
+}

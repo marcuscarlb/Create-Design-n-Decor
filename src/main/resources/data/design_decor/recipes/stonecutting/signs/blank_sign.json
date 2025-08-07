@@ -1,0 +1,9 @@
+
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "create:brass_nugget"
+  },
+  "result": "design_decor:blank_sign",
+  "count": 1
+}

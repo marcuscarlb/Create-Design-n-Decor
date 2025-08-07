@@ -1,0 +1,9 @@
+
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "create:zinc_block"
+  },
+  "result": "design_decor:zinc_boiler_large",
+  "count": 1
+}

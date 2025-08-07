@@ -1,0 +1,32 @@
+
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " S ",
+    "AEA",
+    "BRB"
+  ],
+  "key": {
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "B": {
+      "item": "create:brass_nugget"
+    },
+    "A": {
+      "item": "create:zinc_nugget"
+    },
+    "E": {
+      "item": "create:zinc_ingot"
+    }
+  },
+  "result": {
+    "item": "design_decor:stepped_lever",
+    "count": 1
+
+
+  }
+}

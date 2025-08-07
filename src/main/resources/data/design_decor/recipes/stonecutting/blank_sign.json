@@ -1,0 +1,9 @@
+
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "tag": "create:zinc_nugget"
+  },
+  "result": "design_decor:blank_sign",
+  "count": 1
+}

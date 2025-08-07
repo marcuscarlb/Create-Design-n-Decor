@@ -1,0 +1,9 @@
+
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "create:zinc_ingot"
+  },
+  "result": "design_decor:zinc_railing",
+  "count": 4
+}
